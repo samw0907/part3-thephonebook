@@ -1,0 +1,25 @@
+# fly.toml app configuration file generated for thephonebook-fullstackopen-p3sw on 2024-06-12T09:17:51+03:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'thephonebook-fullstackopen-p3sw'
+primary_region = 'ams'
+
+[build]
+
+[env]
+  PORT = "3001"
+
+[http_service]
+  internal_port = 3001
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1
